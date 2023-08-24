@@ -2,24 +2,31 @@
 <html>
 <head>
     <title>予約表</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!--tailwind cssの読み込み-->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+
 </head>
 <body>
-    <h1>予約表</h1>
+    <h1 class="text-2xl font-bold mb-4">予約表</h1>
     <form id="reservationForm">
-    <table>
-        <tr>
-            <th>時間</th>
-            <th>4人まで予約</th>
-            <th>9人まで予約</th>
-        </tr>
-        <!-- 16:00から22:00までの時間帯を表示 -->
-        <script src="table.js"></script>
-    </table>
-    <br>
-    <button type="button" onclick="registerReservation()">予約を登録</button>
+        <table class="min-w-full divide-y divide-gray-200 border border-gray-300">
+            <tr>
+                <th class="py-2 px-4 text-center bg-gray-200">時間</th>
+                <th class="py-2 px-4 text-center bg-gray-200">4人まで予約</th>
+                <th class="py-2 px-4 text-center bg-gray-200">9人まで予約</th>
+            </tr>
+            
+            <script src="table.js"></script><!-- JavaScriptコードは外部ファイルで読み込む -->
+        
+        </table>
+        <br>
+        <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="registerReservation()">
+            予約を登録
+        </button>
     </form>
 
-    <script src="reserve.js"></script>
+    <script src="reserve.js"></script> <!-- JavaScriptファイルを読み込む -->
+
 </body>
 </html>
