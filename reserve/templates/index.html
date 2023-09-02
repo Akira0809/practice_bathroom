@@ -37,7 +37,17 @@
         </button>
     </form>
 
-    <script src="reserve.js"></script> <!-- JavaScriptファイルを読み込む -->
+    <script>
+    function registerReservation() {
+        if (selectedTime) {
+            const selectedValue = document.querySelector(`input[name='reservation']:checked`).value;
+            const [time, numPeople] = selectedValue.split('-');
+            alert(`選択された時間: ${time}, 人数: ${numPeople}`);
+            // サーバーに予約を送信するロジックを追加できます
+        } else {
+            alert('時間を選択してください。');
+        }
+    }</script> <!-- JavaScriptファイルを読み込む -->
 
 </body>
 </html>

@@ -23,7 +23,6 @@ def index(request):
         })
 #    elif request.method == "POST":
 #        username
-#        name
 #        reserve_time
 #        bath_type
 #        usertime.objects.create(username=username, name=name, reserve_time=reserve_time, bath_type=bath_type)

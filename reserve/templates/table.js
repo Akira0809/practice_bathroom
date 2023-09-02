@@ -11,10 +11,10 @@ for (let i = 16; i < 22; i++) {
             <tr>
                 <td class="py-2 px-4 text-center border border-gray-300">${time}</td>
                 <td class="py-2 px-4 text-center border border-gray-300">
-                    <input type='radio' name='reservation' value='${time}-4人' onclick="selectTime('${time}')">
+                    <input type='submit' name='reservation' value='${time}-4人' onclick="selectTime('${time}')">
                 </td>
                 <td class="py-2 px-4 text-center border border-gray-300">
-                    <input type='radio' name='reservation' value='${time}-9人' onclick="selectTime('${time}')">
+                    <input type='submit' name='reservation' value='${time}-9人' onclick="selectTime('${time}')">
                 </td>
             </tr>
         `);
