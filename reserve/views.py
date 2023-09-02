@@ -16,11 +16,13 @@ def index(request):
         for user in users:
             time_member[user.bath_type][time_arr[user.reserve_time]] += 1
         return render(request, "", {
-            "large_bath": 
+            "large_bath":
         })
     elif request.method == "POST":
-        username
-        name
+        username =
+        name =
         reserve_time
         bath_type
         usertime.objects.create(username=username, name=name, reserve_time=reserve_time, bath_type=bath_type)
+
+def 
