@@ -1,6 +1,6 @@
 from datetime import datetime, date
 from apscheduler.schedulers.background import BackgroundScheduler
-from models import usertime
+from .models import usertime
 
 
 def delete_reservation():# 任意の関数名
