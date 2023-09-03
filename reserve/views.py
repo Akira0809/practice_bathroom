@@ -40,28 +40,34 @@ def index(request):
             "my_bath": my_bath
         })
     elif request.method == "POST":
-        detail = request.POST["reserve"].split('-')
-        username = request.user
-        reserve_time = int(time_arr[detail[0]])
-        bath_type = int(detail[1])
         allow_req = 0
-        if bath_type == 1:
-            if time_member[reserve_time][2] >= 4:
-                allow_req = -1
-        elif bath_type == 2:
-            if time_member[reserve_time][3] >= 9:
-                allow_req = -1
-        if session_id != None:
-            user = usertime.objects.get(id = session_id)
-            user.reserve_time = reserve_time
-            user.bath_type = bath_type
-            allow_req = 1
+        print(request.POST)
+        if len(list(request.POST.keys())) == 1:
+            allow_req = 2
+        else:
+            detail = request.POST["reserve"].split('-')
+            username = request.user
+            reserve_time = int(time_arr[detail[0]])
+            bath_type = int(detail[1])
+            if bath_type == 1:
+                if time_member[reserve_time][2] >= 4:
+                    allow_req = -1
+            elif bath_type == 2:
+                if time_member[reserve_time][3] >= 9:
+                    allow_req = -1
+            if session_id != None:
+                user = usertime.objects.get(id = session_id)
+                user.reserve_time = reserve_time
+                user.bath_type = bath_type
+                allow_req = 1
         if allow_req == 0:
             usertime.objects.create(username=username, reserve_time=reserve_time, bath_type=bath_type)
             return HttpResponse("Successful")
         elif allow_req == 1:
             user.save()
             return HttpResponse("Successful")
+        elif allow_req == 2:
+            return HttpResponse("Please choose something time.")
         else:
             return HttpResponse("Request Failed.\nPlease try again.")
 
